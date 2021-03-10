@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    122333
+    <div class="pannel">
+        <i data-from="weixin_friend" class="iconfont icon-wechat">微信好友</i>
+        <i data-from="weixin_timeline" class="iconfont icon-pengyouquan">朋友圈</i>
+        <i data-from="qqfriend" class="iconfont icon-qq">qq好友</i>
+        <i data-from="sinaweibo" class="iconfont icon-weibo">微博</i>
+    </div>
+    <script src="https://b.bdstatic.com/searchbox/icms/searchbox/js/native-201802071814.js"></script>
+    <script>
+    var boxInvoke = window['box-invoke'].default;
+    console.log(window['box-invoke'], window['box-invoke'].default, 'boxInvoke');
+    var pannel = document.getElementsByClassName('pannel')[0];
+    pannel.addEventListener('click', function (e) {
+        if (e.target.dataset.from) {
+            boxInvoke.share({
+                mediaType: e.target.dataset.from,
+                url: 'https://m.baidu.com',
+                title: '特定渠道分享测试',
+                content: '特定渠道分享测试',
+                iconUrl: 'https://b.bdstatic.com/searchbox/icms/searchbox/img/bj-show-share.png'
+            }).then(function () {
+            }).catch(function () {
+            });
+        }
+    });
+    </script>
+
 </body>
+
 </html>
