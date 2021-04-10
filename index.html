@@ -1,39 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <div class="pannel">
-        <i data-from="weixin_friend" class="iconfont icon-wechat">微信好友</i>
-        <i data-from="weixin_timeline" class="iconfont icon-pengyouquan">朋友圈</i>
-        <i data-from="qqfriend" class="iconfont icon-qq">qq好友</i>
-        <i data-from="sinaweibo" class="iconfont icon-weibo">微博</i>
-    </div>
-    <script src="https://b.bdstatic.com/searchbox/icms/searchbox/js/native-201802071814.js"></script>
-    <script>
-    var boxInvoke = window['box-invoke'].default;
-    console.log(window['box-invoke'], window['box-invoke'].default, 'boxInvoke');
-    var pannel = document.getElementsByClassName('pannel')[0];
-    pannel.addEventListener('click', function (e) {
-        if (e.target.dataset.from) {
-            boxInvoke.share({
-                mediaType: e.target.dataset.from,
-                url: 'https://m.baidu.com',
-                title: '特定渠道分享测试',
-                content: '特定渠道分享测试',
-                iconUrl: 'https://b.bdstatic.com/searchbox/icms/searchbox/img/bj-show-share.png'
-            }).then(function () {
-            }).catch(function () {
-            });
-        }
-    });
-    </script>
-
-</body>
-
+ <head>
+  <meta charset="UTF-8">
+  <title>百度分享朋友圈</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+      
+  <style type="text/css">
+	body,html {
+			    padding: 0;
+			    margin: 0
+			}
+			
+			#container {
+			    width: 100vw;
+			    height: 100vh;
+			    font-size: 1.4rem;
+			    line-height: 2rem;
+			    position: relative;
+			    background: #fff;
+			    overflow-y: auto
+			}
+			
+			#container__wx {
+			    justify-content: center;
+			    overflow: hidden;
+			    background: #f8f8f9
+			}
+			
+			#container__nwx,#container__wx {
+			    display: none;
+			    flex-direction: column;
+			    align-items: center;
+			    height: 100vh;
+			    max-height: 100vh
+			}
+			
+			#container__nwx {
+			    justify-content: flex-start;
+			    box-sizing: border-box;
+			    overflow-y: hidden;
+			    padding-top: 20vh
+			}
+			
+			.text-top {
+			    font-size: 20px;
+			    line-height: 28px;
+			    margin-bottom: 32px
+			}
+			
+			.text-bttom,.text-top {
+			    font-weight: 500;
+			    color: #3b426b
+			}
+			
+			.text-bttom {
+			    margin-top: 32px;
+			    width: 280px;
+			    height: 32px;
+			    background: #f2f5fa;
+			    border-radius: 28px;
+			    font-size: 14px;
+			    line-height: 32px;
+			    text-align: center
+			}
+			
+			#btn__target {
+			    display: none;
+			    margin-bottom: 24px
+			}
+			
+			#btn__wx {
+			    margin-bottom: 100px;
+			    position: relative
+			}
+			
+			#btn__wx.blue:after {
+			    content: "请完成授权后继续访问";
+			    position: absolute;
+			    bottom: -50px;
+			    display: block;
+			    width: 100%;
+			    height: 30px;
+			    line-height: 30px;
+			    text-align: center;
+			    color: #3b426b;
+			    font-weight: 400
+			}
+			
+			#block__show {
+			    width: 100%;
+			    height: 100vh;
+			    background: #fff;
+			    box-sizing: border-box;
+			    padding-bottom: 100%;
+			    display: none
+			}
+			
+			#block__show img {
+			    bottom: 0;
+			    left: 0;
+			    width: 100%;
+			    margin: 12rem auto 0
+			}
+			
+			#block__show img,#block__top {
+			    position: absolute;
+			    top: 0;
+			    right: 0
+			}
+			
+			#block__top {
+			    flex-direction: column;
+			    align-items: flex-end;
+			    padding-top: .4rem
+			}
+			
+			#block__bottom,#block__top {
+			    width: 100vw;
+			    display: none;
+			    background: #add8e6
+			}
+			
+			#block__bottom {
+			    position: absolute;
+			    bottom: 0;
+			    right: 0;
+			    align-items: center;
+			    justify-content: center;
+			    padding-bottom: 8rem
+			}
+			
+			#img--arrow {
+			    display: block;
+			    width: 2rem;
+			    height: 2rem;
+			    margin-bottom: .4rem
+			}
+			
+			#test_center {
+			    display: flex;
+			    position: absolute;
+			    z-index: 99;
+			    top: 10rem;
+			    bottom: 11rem;
+			    width: 100vw;
+			    background: rgba(0,0,0,.2);
+			    overflow-y: auto
+			}
+			
+			#block__btns,#test_center {
+			    align-items: center;
+			    justify-content: center
+			}
+			
+			#block__btns {
+			    display: none;
+			    flex-direction: column;
+			    height: 80%
+			}
+			
+			.btn {
+			    width: 220px;
+			    height: 50px;
+			    background: #fff;
+			    border-radius: 2px;
+			    text-align: center;
+			    line-height: 50px;
+			    font-size: 16px;
+			    font-weight: 400;
+			    color: #3464e0
+			}
+			
+			.btn.blue {
+			    color: #fff;
+			    background: linear-gradient(315deg,#6ba8ff,#1e56e7);
+			    font-weight: 500
+			}
+			
+			.btn-margin {
+			    margin-bottom: 1.2rem;
+			    margin-top: 1.2rem
+			}
+			
+			.btn__text {
+			    color: #1e56e7;
+			    font-size: 1.6rem
+			}
+			.bdShare{
+				width: 130px;
+			    height: 36px;
+			    line-height: 36px;
+			    position: absolute;
+			    left: 50%;
+			    margin-left: -65px;
+			    background: #f76851;
+			    text-align: center;
+			    color: #FFF;
+			    top: 100px;
+			    border-radius: 3px;
+			    font-size: 14px;
+			    font-weight: bolder;			
+			}
+  </style>
+<script>window._agl = window._agl || [];
+(function () {
+    _agl.push(
+        ['production', '_f7L2XwGXjyszb4d1e2oxPybgD']
+    );
+    (function () {
+        var agl = document.createElement('script');
+        agl.type = 'text/javascript';
+        agl.async = true;
+        agl.src = 'https://fxgate.baidu.com/angelia/fcagl.js?production=_f7L2XwGXjyszb4d1e2oxPybgD';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(agl, s);
+    })();
+})();</script>  
+  <script type="text/javascript">
+		    function isAndroid() {
+		        var ua = navigator.userAgent;
+		        return /(Android);?[\s\/]+([\d.]+)?/.test(ua);
+		
+		    };
+		
+		    function isIOS() {
+		        var ua = navigator.userAgent;
+		        var ue = /(iPad).*OS\s([\d_]+)/.test(ua);
+		        return !ue && /(iPhone\sOS)\s([\d_]+)/.test(ua);
+		    };            
+            var bdShare=function(){
+				if (isIOS()) {
+		            var timestamp = Date.parse(new Date());
+		            var shareUrl = "baiduboxapp://callShare?" + ["options=" + encodeURIComponent(JSON.stringify({
+		                type: "url",
+		                mediaType: "weixin_timeline",
+		                iconUrl: "https://wx3.sinaimg.cn/mw690/9b8794bagy1gbzreiwmj9j20g00fy41a.jpg",
+		                title: "精彩小说点击继续阅读",
+		                content: "描述",
+		                linkUrl: "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3NzY0ODI0MQ==&scene=124&uin=&key=&devicetype=Windows+10+x64&version=63010048&lang=zh_CN&a8scene=7&fontgear=2",
+		                shareSuccessCB: "shareSuccessCallback",
+		                shareErrorCB: "shareFailCallback"
+		
+		            }))];
+		            shareUrl = shareUrl + "&minver=5.3.5.0&successcallback=shareSuccessCallback" + timestamp + "&errorcallback=shareFailCallback" + timestamp;
+		            location.href = shareUrl;
+		        } else {
+		            prompt("BdboxApp:" + JSON.stringify({
+		                obj: "Bdbox_android_utils",
+		                func: "callShare",
+		                args: ['{' +
+		                'imageUrl: "",' +
+		                'mediaType: "weixin_timeline",' +
+		                'title: "' + "精彩小说点击继续阅读" +
+		                '",content: "' + "描述" +
+		                '",linkUrl: "' + "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3NzY0ODI0MQ==&scene=124&uin=&key=&devicetype=Windows+10+x64&version=63010048&lang=zh_CN&a8scene=7&fontgear=2" +
+		                '",iconUrl: "' + "https://wx3.sinaimg.cn/mw690/9b8794bagy1gbzreiwmj9j20g00fy41a.jpg" + '" }',
+		                    "window.NativeShareSuccessCallback", "window.NativeShareFailCallback"]
+		            }))
+		        }
+            };  
+  </script>
+  <style>
+            #block__center {
+                height: 100vh;
+                width: 100vw
+            }
+ 
+            #container__wx {
+                display: flex
+            }
+ 
+            #container__wx p {
+                color: #3b426b;
+                margin-bottom: 20px
+            }
+ 
+            #btn__target {
+			    display: block;
+			    background: #1e56e7;
+			    color: #fff;
+			    border-radius: 4px;
+			    text-decoration: none;
+			    font-size: 14px;
+			    height: 38px;
+			    line-height: 38px;
+			    width: 140px;
+			    text-align: center;
+            }
+        </style>
+ </head>
+ <body>
+        <div class="bdShare" onclick="bdShare();">百度分享朋友圈</div>
+ </body>
 </html>
