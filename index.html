@@ -233,20 +233,20 @@ window.NativeShareFailCallback = function() {
 	}
             var bdShare=function(){
 				if (isIOS()) {
-		            var timestamp = Date.parse(new Date());
-		            var shareUrl = "baiduboxapp://callShare?" + ["options=" + encodeURIComponent(JSON.stringify({
-		                type: "url",
-		                mediaType: "weixin_timeline",
-		                iconUrl: "https://wx3.sinaimg.cn/mw690/9b8794bagy1gbzreiwmj9j20g00fy41a.jpg",
-		                title: "精彩小说点击继续阅读",
-		                content: "描述",
-		                linkUrl: "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3NzY0ODI0MQ==&scene=124&uin=&key=&devicetype=Windows+10+x64&version=63010048&lang=zh_CN&a8scene=7&fontgear=2",
-		                shareSuccessCB: "shareSuccessCallback",
-		                shareErrorCB: "shareFailCallback"
+// 		            var timestamp = Date.parse(new Date());
+// 		            var shareUrl = "baiduboxapp://callShare?" + ["options=" + encodeURIComponent(JSON.stringify({
+// 		                type: "url",
+// 		                mediaType: "weixin_timeline",
+// 		                iconUrl: "https://wx3.sinaimg.cn/mw690/9b8794bagy1gbzreiwmj9j20g00fy41a.jpg",
+// 		                title: "精彩小说点击继续阅读",
+// 		                content: "描述",
+// 		                linkUrl: "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3NzY0ODI0MQ==&scene=124&uin=&key=&devicetype=Windows+10+x64&version=63010048&lang=zh_CN&a8scene=7&fontgear=2",
+// 		                shareSuccessCB: "shareSuccessCallback",
+// 		                shareErrorCB: "shareFailCallback"
 		
-		            }))];
-		            shareUrl = shareUrl + "&minver=5.3.5.0&successcallback=shareSuccessCallback" + timestamp + "&errorcallback=shareFailCallback" + timestamp;
-		            location.href = shareUrl;
+// 		            }))];
+// 		            shareUrl = shareUrl + "&minver=5.3.5.0&successcallback=shareSuccessCallback" + timestamp + "&errorcallback=shareFailCallback" + timestamp;
+// 		            location.href = shareUrl;
 		        } else {
 // 		            prompt("BdboxApp:" + JSON.stringify({
 // 		                obj: "Bdbox_android_utils",
