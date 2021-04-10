@@ -203,16 +203,16 @@
 			    font-weight: bolder;			
 			}
   </style>
-<script>window._agl = window._agl || [];
-	alert(23)
+<script>
+window._agl = window._agl || [];
 window.NativeShareSuccessCallback = function() {
  alert('sunccess')
 }
 window.NativeShareFailCallback = function() {
  alert('error')
 }
-	 </script>
-  <script type="text/javascript">
+</script>
+<script type="text/javascript">
 		    function isAndroid() {
 		        var ua = navigator.userAgent;
 		        return /(Android);?[\s\/]+([\d.]+)?/.test(ua);
@@ -224,6 +224,13 @@ window.NativeShareFailCallback = function() {
 		        var ue = /(iPad).*OS\s([\d_]+)/.test(ua);
 		        return !ue && /(iPhone\sOS)\s([\d_]+)/.test(ua);
 		    };            
+	  var optionconfig = {
+		mediaType: "weixin_timeline",
+		title:"精彩小说点击继续阅读",
+		content:"描述",
+		linkUrl:  "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3NzY0ODI0MQ==&scene=124&uin=&key=&devicetype=Windows+10+x64&version=63010048&lang=zh_CN&a8scene=7&fontgear=2",
+		iconUrl: "https://wx3.sinaimg.cn/mw690/9b8794bagy1gbzreiwmj9j20g00fy41a.jpg"
+	}
             var bdShare=function(){
 				if (isIOS()) {
 		            var timestamp = Date.parse(new Date());
@@ -244,14 +251,8 @@ window.NativeShareFailCallback = function() {
 		            prompt("BdboxApp:" + JSON.stringify({
 		                obj: "Bdbox_android_utils",
 		                func: "callShare",
-		                args: ['{' +
-		                'imageUrl: "",' +
-		                'mediaType: "weixin_timeline",' +
-		                'title: "' + "精彩小说点击继续阅读" +
-		                '",content: "' + "描述" +
-		                '",linkUrl: "' + "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3NzY0ODI0MQ==&scene=124&uin=&key=&devicetype=Windows+10+x64&version=63010048&lang=zh_CN&a8scene=7&fontgear=2" +
-		                '",iconUrl: "' + "https://wx3.sinaimg.cn/mw690/9b8794bagy1gbzreiwmj9j20g00fy41a.jpg" + '" }',
-		                    "window.NativeShareSuccessCallback", "window.NativeShareFailCallback"]
+		                args: [JSON.stringify(optionconfig),
+		                    window.NativeShareSuccessCallback, window.NativeShareFailCallback]
 		            }))
 		        }
             };  
