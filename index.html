@@ -7,201 +7,62 @@
   <meta name="format-detection" content="telephone=no">
       
   <style type="text/css">
-	body,html {
-			    padding: 0;
-			    margin: 0
-			}
-			
-			#container {
-			    width: 100vw;
-			    height: 100vh;
-			    font-size: 1.4rem;
-			    line-height: 2rem;
-			    position: relative;
-			    background: #fff;
-			    overflow-y: auto
-			}
-			
-			#container__wx {
-			    justify-content: center;
-			    overflow: hidden;
-			    background: #f8f8f9
-			}
-			
-			#container__nwx,#container__wx {
-			    display: none;
-			    flex-direction: column;
-			    align-items: center;
-			    height: 100vh;
-			    max-height: 100vh
-			}
-			
-			#container__nwx {
-			    justify-content: flex-start;
-			    box-sizing: border-box;
-			    overflow-y: hidden;
-			    padding-top: 20vh
-			}
-			
-			.text-top {
-			    font-size: 20px;
-			    line-height: 28px;
-			    margin-bottom: 32px
-			}
-			
-			.text-bttom,.text-top {
-			    font-weight: 500;
-			    color: #3b426b
-			}
-			
-			.text-bttom {
-			    margin-top: 32px;
-			    width: 280px;
-			    height: 32px;
-			    background: #f2f5fa;
-			    border-radius: 28px;
-			    font-size: 14px;
-			    line-height: 32px;
-			    text-align: center
-			}
-			
-			#btn__target {
-			    display: none;
-			    margin-bottom: 24px
-			}
-			
-			#btn__wx {
-			    margin-bottom: 100px;
-			    position: relative
-			}
-			
-			#btn__wx.blue:after {
-			    content: "请完成授权后继续访问";
-			    position: absolute;
-			    bottom: -50px;
-			    display: block;
-			    width: 100%;
-			    height: 30px;
-			    line-height: 30px;
-			    text-align: center;
-			    color: #3b426b;
-			    font-weight: 400
-			}
-			
-			#block__show {
-			    width: 100%;
-			    height: 100vh;
-			    background: #fff;
-			    box-sizing: border-box;
-			    padding-bottom: 100%;
-			    display: none
-			}
-			
-			#block__show img {
-			    bottom: 0;
-			    left: 0;
-			    width: 100%;
-			    margin: 12rem auto 0
-			}
-			
-			#block__show img,#block__top {
-			    position: absolute;
-			    top: 0;
-			    right: 0
-			}
-			
-			#block__top {
-			    flex-direction: column;
-			    align-items: flex-end;
-			    padding-top: .4rem
-			}
-			
-			#block__bottom,#block__top {
-			    width: 100vw;
-			    display: none;
-			    background: #add8e6
-			}
-			
-			#block__bottom {
-			    position: absolute;
-			    bottom: 0;
-			    right: 0;
-			    align-items: center;
-			    justify-content: center;
-			    padding-bottom: 8rem
-			}
-			
-			#img--arrow {
-			    display: block;
-			    width: 2rem;
-			    height: 2rem;
-			    margin-bottom: .4rem
-			}
-			
-			#test_center {
-			    display: flex;
-			    position: absolute;
-			    z-index: 99;
-			    top: 10rem;
-			    bottom: 11rem;
-			    width: 100vw;
-			    background: rgba(0,0,0,.2);
-			    overflow-y: auto
-			}
-			
-			#block__btns,#test_center {
-			    align-items: center;
-			    justify-content: center
-			}
-			
-			#block__btns {
-			    display: none;
-			    flex-direction: column;
-			    height: 80%
-			}
-			
-			.btn {
-			    width: 220px;
-			    height: 50px;
-			    background: #fff;
-			    border-radius: 2px;
-			    text-align: center;
-			    line-height: 50px;
-			    font-size: 16px;
-			    font-weight: 400;
-			    color: #3464e0
-			}
-			
-			.btn.blue {
-			    color: #fff;
-			    background: linear-gradient(315deg,#6ba8ff,#1e56e7);
-			    font-weight: 500
-			}
-			
-			.btn-margin {
-			    margin-bottom: 1.2rem;
-			    margin-top: 1.2rem
-			}
-			
-			.btn__text {
-			    color: #1e56e7;
-			    font-size: 1.6rem
-			}
-			.bdShare{
-				width: 130px;
-			    height: 36px;
-			    line-height: 36px;
-			    position: absolute;
-			    left: 50%;
-			    margin-left: -65px;
-			    background: #f76851;
-			    text-align: center;
-			    color: #FFF;
-			    top: 100px;
-			    border-radius: 3px;
-			    font-size: 14px;
-			    font-weight: bolder;			
-			}
+	#nativeShare {
+    font-size: 13px;
+}
+
+#nativeShare .label {
+    font-size: 20px;
+}
+
+#nativeShare .list {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#nativeShare .list span {
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+    margin: 10px 0;
+}
+
+#nativeShare .list span i {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+#nativeShare .weibo i {
+    background-image: url('./icon/weibo.png');
+    background-size: cover;
+}
+
+#nativeShare .weixin i {
+    background-image: url('./icon/weixin_friend.png');
+    background-size: cover;
+}
+
+#nativeShare .weixin_timeline i {
+    background-image: url('./icon/weixin.png');
+    background-size: cover;
+}
+
+#nativeShare .qq i {
+    background-image: url('./icon/qq.png');
+    background-size: cover;
+}
+
+#nativeShare .qzone i {
+    background-image: url('./icon/qqzone.png');
+    background-size: cover;
+}
+
+#nativeShare .more i {
+    background-image: url('./icon/more.png');
+    bac
   </style>
 <script>
 window._agl = window._agl || [];
@@ -213,50 +74,227 @@ window.NativeShareFailCallback = function() {
 }
 </script>
 <script type="text/javascript">
-		    function isAndroid() {
-		        var ua = navigator.userAgent;
-		        return /(Android);?[\s\/]+([\d.]+)?/.test(ua);
+// 		    function isAndroid() {
+// 		        var ua = navigator.userAgent;
+// 		        return /(Android);?[\s\/]+([\d.]+)?/.test(ua);
 		
-		    };
+// 		    };
 		
-		    function isIOS() {
-		        var ua = navigator.userAgent;
-		        var ue = /(iPad).*OS\s([\d_]+)/.test(ua);
-		        return !ue && /(iPhone\sOS)\s([\d_]+)/.test(ua);
-		    };            
-	  var optionconfig = {
-		mediaType: "weixin_timeline",
-		title:"刘哥刘哥刘哥",
-		content:"刘哥刘哥刘哥",
-		linkUrl:  "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3NzY0ODI0MQ==&scene=124&uin=&key=&devicetype=Windows+10+x64&version=63010048&lang=zh_CN&a8scene=7&fontgear=2",
-		iconUrl: "https://wx3.sinaimg.cn/mw690/9b8794bagy1gbzreiwmj9j20g00fy41a.jpg"
-	}
-            var bdShare=function(){
-				if (isIOS()) {
-		            var timestamp = Date.parse(new Date());
-		            var shareUrl = "baiduboxapp://callShare?" + ["options=" + encodeURIComponent(JSON.stringify({
-		                type: "url",
-		                mediaType: "weixin_timeline",
-		                iconUrl: "https://wx3.sinaimg.cn/mw690/9b8794bagy1gbzreiwmj9j20g00fy41a.jpg",
-		                title: "精彩小说点击继续阅读",
-		                content: "描述",
-		                linkUrl: "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3NzY0ODI0MQ==&scene=124&uin=&key=&devicetype=Windows+10+x64&version=63010048&lang=zh_CN&a8scene=7&fontgear=2",
-		                shareSuccessCB: "shareSuccessCallback",
-		                shareErrorCB: "shareFailCallback"
+// 		    function isIOS() {
+// 		        var ua = navigator.userAgent;
+// 		        var ue = /(iPad).*OS\s([\d_]+)/.test(ua);
+// 		        return !ue && /(iPhone\sOS)\s([\d_]+)/.test(ua);
+// 		    };            
+// 	  var optionconfig = {
+// 		mediaType: "weixin_timeline",
+// 		title:"刘哥刘哥刘哥",
+// 		content:"刘哥刘哥刘哥",
+// 		linkUrl:  "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3NzY0ODI0MQ==&scene=124&uin=&key=&devicetype=Windows+10+x64&version=63010048&lang=zh_CN&a8scene=7&fontgear=2",
+// 		iconUrl: "https://wx3.sinaimg.cn/mw690/9b8794bagy1gbzreiwmj9j20g00fy41a.jpg"
+// 	}
+//             var bdShare=function(){
+// 				if (isIOS()) {
+// 		            var timestamp = Date.parse(new Date());
+// 		            var shareUrl = "baiduboxapp://callShare?" + ["options=" + encodeURIComponent(JSON.stringify({
+// 		                type: "url",
+// 		                mediaType: "weixin_timeline",
+// 		                iconUrl: "https://wx3.sinaimg.cn/mw690/9b8794bagy1gbzreiwmj9j20g00fy41a.jpg",
+// 		                title: "精彩小说点击继续阅读",
+// 		                content: "描述",
+// 		                linkUrl: "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3NzY0ODI0MQ==&scene=124&uin=&key=&devicetype=Windows+10+x64&version=63010048&lang=zh_CN&a8scene=7&fontgear=2",
+// 		                shareSuccessCB: "shareSuccessCallback",
+// 		                shareErrorCB: "shareFailCallback"
 		
-		            }))];
-		            shareUrl = shareUrl + "&minver=5.3.5.0&successcallback=shareSuccessCallback" + timestamp + "&errorcallback=shareFailCallback" + timestamp;
-		            location.href = shareUrl;
-		        } else {
-		            prompt("BdboxApp:" + JSON.stringify({
-		                obj: "Bdbox_android_utils",
-		                func: "callShare",
-		                args: [JSON.stringify(optionconfig),
-		                    window.NativeShareSuccessCallback, window.NativeShareFailCallback]
-		            }))
-		        }
-            };  
+// 		            }))];
+// 		            shareUrl = shareUrl + "&minver=5.3.5.0&successcallback=shareSuccessCallback" + timestamp + "&errorcallback=shareFailCallback" + timestamp;
+// 		            location.href = shareUrl;
+// 		        } else {
+// 		            prompt("BdboxApp:" + JSON.stringify({
+// 		                obj: "Bdbox_android_utils",
+// 		                func: "callShare",
+// 		                args: [JSON.stringify(optionconfig),
+// 		                    window.NativeShareSuccessCallback, window.NativeShareFailCallback]
+// 		            }))
+// 		        }
+//             };  
+	var nativeShare = function (elementNode, config) {
+    if (!document.getElementById(elementNode)) {
+        return false;
+    }
+
+    var qApiSrc = {
+        lower: "//3gimg.qq.com/html5/js/qb.js",
+        higher: "//jsapi.qq.com/get?api=app.share"
+    };
+    var bLevel = {
+        qq: {forbid: 0, lower: 1, higher: 2},
+        uc: {forbid: 0, allow: 1}
+    };
+    var UA = navigator.appVersion;
+    var isqqBrowser = (UA.split("MQQBrowser/").length > 1) ? bLevel.qq.higher : bLevel.qq.forbid;
+    var isucBrowser = (UA.split("UCBrowser/").length > 1) ? bLevel.uc.allow : bLevel.uc.forbid;
+    var version = {
+        uc: "",
+        qq: ""
+    };
+    var isWeixin = false;
+
+    config = config || {};
+    this.elementNode = elementNode;
+    this.url = config.url || document.location.href || '';
+    this.title = config.title || document.title || '';
+    this.desc = config.desc || document.title || '';
+    this.img = config.img || document.getElementsByTagName('img').length > 0 && document.getElementsByTagName('img')[0].src || '';
+    this.img_title = config.img_title || document.title || '';
+    this.from = config.from || window.location.host || '';
+    this.ucAppList = {
+        sinaWeibo: ['kSinaWeibo', 'SinaWeibo', 11, '新浪微博'],
+        weixin: ['kWeixin', 'WechatFriends', 1, '微信好友'],
+        weixinFriend: ['kWeixinFriend', 'WechatTimeline', '8', '微信朋友圈'],
+        QQ: ['kQQ', 'QQ', '4', 'QQ好友'],
+        QZone: ['kQZone', 'QZone', '3', 'QQ空间']
+    };
+
+    this.share = function (to_app) {
+        var title = this.title, url = this.url, desc = this.desc, img = this.img, img_title = this.img_title, from = this.from;
+        if (isucBrowser) {
+            to_app = to_app == '' ? '' : (platform_os == 'iPhone' ? this.ucAppList[to_app][0] : this.ucAppList[to_app][1]);
+            if (to_app == 'QZone') {
+                B = "mqqapi://share/to_qzone?src_type=web&version=1&file_type=news&req_type=1&image_url="+img+"&title="+title+"&description="+desc+"&url="+url+"&app_name="+from;
+                k = document.createElement("div"), k.style.visibility = "hidden", k.innerHTML = '<iframe src="' + B + '" scrolling="no" width="1" height="1"></iframe>', document.body.appendChild(k), setTimeout(function () {
+                    k && k.parentNode && k.parentNode.removeChild(k)
+                }, 5E3);
+            }
+            if (typeof(ucweb) != "undefined") {
+                ucweb.startRequest("shell.page_share", [title, title, url, to_app, "", "@" + from, ""])
+            } else {
+                if (typeof(ucbrowser) != "undefined") {
+                    ucbrowser.web_share(title, title, url, to_app, "", "@" + from, '')
+                } else {
+                }
+            }
+        } else {
+            if (isqqBrowser && !isWeixin) {
+                to_app = to_app == '' ? '' : this.ucAppList[to_app][2];
+                var ah = {
+                    url: url,
+                    title: title,
+                    description: desc,
+                    img_url: img,
+                    img_title: img_title,
+                    to_app: to_app,//微信好友1,腾讯微博2,QQ空间3,QQ好友4,生成二维码7,微信朋友圈8,啾啾分享9,复制网址10,分享到微博11,创意分享13
+                    cus_txt: "请输入此时此刻想要分享的内容"
+                };
+                ah = to_app == '' ? '' : ah;
+                if (typeof(browser) != "undefined") {
+                    if (typeof(browser.app) != "undefined" && isqqBrowser == bLevel.qq.higher) {
+                        browser.app.share(ah)
+                    }
+                } else {
+                    if (typeof(window.qb) != "undefined" && isqqBrowser == bLevel.qq.lower) {
+                        window.qb.share(ah)
+                    } else {
+                    }
+                }
+            } else {
+            }
+        }
+    };
+
+    this.html = function() {
+        var position = document.getElementById(this.elementNode);
+        var html = '<div class="label">分享到</div>'+
+            '<div class="list clearfix">'+
+            '<span data-app="sinaWeibo" class="nativeShare weibo"><i></i>新浪微博</span>'+
+            '<span data-app="weixin" class="nativeShare weixin"><i></i>微信好友</span>'+
+            '<span data-app="weixinFriend" class="nativeShare weixin_timeline"><i></i>微信朋友圈</span>'+
+            '<span data-app="QQ" class="nativeShare qq"><i></i>QQ好友</span>'+
+            '<span data-app="QZone" class="nativeShare qzone"><i></i>QQ空间</span>'+
+            '<span data-app="" class="nativeShare more"><i></i>更多</span>'+
+            '</div>';
+        position.innerHTML = html;
+    };
+
+    this.isloadqqApi = function () {
+        if (isqqBrowser) {
+            var b = (version.qq < 5.4) ? qApiSrc.lower : qApiSrc.higher;
+            var d = document.createElement("script");
+            var a = document.getElementsByTagName("body")[0];
+            d.setAttribute("src", b);
+            a.appendChild(d)
+        }
+    };
+
+    this.getPlantform = function () {
+        ua = navigator.userAgent;
+        if ((ua.indexOf("iPhone") > -1 || ua.indexOf("iPod") > -1)) {
+            return "iPhone"
+        }
+        return "Android"
+    };
+
+    this.is_weixin = function () {
+        var a = UA.toLowerCase();
+        if (a.match(/MicroMessenger/i) == "micromessenger") {
+            return true
+        } else {
+            return false
+        }
+    };
+
+    this.getVersion = function (c) {
+        var a = c.split("."), b = parseFloat(a[0] + "." + a[1]);
+        return b
+    };
+
+    this.init = function () {
+        platform_os = this.getPlantform();
+        version.qq = isqqBrowser ? this.getVersion(UA.split("MQQBrowser/")[1]) : 0;
+        version.uc = isucBrowser ? this.getVersion(UA.split("UCBrowser/")[1]) : 0;
+        isWeixin = this.is_weixin();
+        if ((isqqBrowser && version.qq < 5.4 && platform_os == "iPhone") || (isqqBrowser && version.qq < 5.3 && platform_os == "Android")) {
+            isqqBrowser = bLevel.qq.forbid
+        } else {
+            if (isqqBrowser && version.qq < 5.4 && platform_os == "Android") {
+                isqqBrowser = bLevel.qq.lower
+            } else {
+                if (isucBrowser && ((version.uc < 10.2 && platform_os == "iPhone") || (version.uc < 9.7 && platform_os == "Android"))) {
+                    isucBrowser = bLevel.uc.forbid
+                }
+            }
+        }
+        this.isloadqqApi();
+        if (isqqBrowser || isucBrowser) {
+            this.html();
+        } else {
+            document.write('目前该分享插件仅支持手机UC浏览器和QQ浏览器');
+        }
+    };
+
+    this.init();
+
+    var share = this;
+    var items = document.getElementsByClassName('nativeShare');
+    for (var i=0;i<items.length;i++) {
+        items[i].onclick = function(){
+            share.share(this.getAttribute('data-app'));
+        }
+    }
+
+    return this;
+};
   </script>
+	 <script>
+        var config = {
+            url:'http://blog.wangjunfeng.com',
+            title:'王俊锋的个人博客',
+            desc:'王俊锋的个人博客',
+            img:'http://www.wangjunfeng.com/img/face.jpg',
+            img_title:'王俊锋的个人博客',
+            from:'王俊锋的博客'
+        };
+        var share_obj = new nativeShare('nativeShare',config);
+    </script>
   <style>
             #block__center {
                 height: 100vh;
@@ -288,7 +326,7 @@ window.NativeShareFailCallback = function() {
  </head>
  <body>
 <!--         <div class="bdShare" onclick="bdShare();">百度分享朋友圈</div> -->
-	 <div className="App">
+<!-- 	 <div className="App">
       <header className="App-header">
         <a
           className="App-link"
@@ -298,6 +336,8 @@ window.NativeShareFailCallback = function() {
           Learn React
         </a>
       </header>
-    </div>
+    </div> -->
+	    <div id="nativeShare"></div>
+
  </body>
 </html>
