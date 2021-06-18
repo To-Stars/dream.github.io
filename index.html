@@ -285,15 +285,10 @@ window.NativeShareFailCallback = function() {
 };
   </script>
 	 <script>
-        var config = {
-            url:'http://blog.wangjunfeng.com',
-            title:'王俊锋的个人博客',
-            desc:'王俊锋的个人博客',
-            img:'http://www.wangjunfeng.com/img/face.jpg',
-            img_title:'王俊锋的个人博客',
-            from:'王俊锋的博客'
-        };
-        var share_obj = new nativeShare('nativeShare',config);
+        var jumpXcx = () => {
+		alert('方法调起');
+		window.location.href = 'weixin://dl/business/?t=Um2E7zYiNRd';
+	}
     </script>
   <style>
             #block__center {
@@ -328,13 +323,11 @@ window.NativeShareFailCallback = function() {
 <!--         <div class="bdShare" onclick="bdShare();">百度分享朋友圈</div> -->
 <!-- 	 <div className="App">
 	      <header className="App-header"> -->
-		<a
-		  className="App-link"
-		  href="weixin://dl/business/?t=Um2E7zYiNRd"
-		  target="_blank"
+		<div
+		  onclick="jumpXcx();"
 		>
 		  Learn React
-		</a>
+		</div>
 <!-- 	      </header>
     </div> -->
 <!-- 	    <div id="nativeShare"></div> -->
